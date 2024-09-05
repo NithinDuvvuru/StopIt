@@ -1,0 +1,85 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.2 (lin64) Build 4029153 Fri Oct 13 20:13:54 MDT 2023
+| Date         : Thu Aug  1 18:35:45 2024
+| Host         : BELSPC0027 running 64-bit Ubuntu 22.04.4 LTS
+| Command      : report_methodology -file basys3_methodology_drc_routed.rpt -pb basys3_methodology_drc_routed.pb -rpx basys3_methodology_drc_routed.rpx
+| Design       : basys3
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 9
++-----------+------------------+------------------------------------------------------+------------+
+| Rule      | Severity         | Description                                          | Violations |
++-----------+------------------+------------------------------------------------------+------------+
+| TIMING-8  | Critical Warning | No common period between related clocks              | 2          |
+| TIMING-17 | Critical Warning | Non-clocked sequential cell                          | 2          |
+| TIMING-18 | Warning          | Missing input or output delay                        | 4          |
+| XDCC-4    | Warning          | User Clock constraint overwritten with the same name | 1          |
++-----------+------------------+------------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-8#1 Critical Warning
+No common period between related clocks  
+The clocks clk_100 and clk_1k are found related (timed together) but have no common (expandable) period
+Related violations: <none>
+
+TIMING-8#2 Critical Warning
+No common period between related clocks  
+The clocks clk_1k and clk_100 are found related (timed together) but have no common (expandable) period
+Related violations: <none>
+
+TIMING-17#1 Critical Warning
+Non-clocked sequential cell  
+The clock pin basys3_7seg_driver/state_q_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#2 Critical Warning
+Non-clocked sequential cell  
+The clock pin basys3_7seg_driver/state_q_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on btnC relative to the rising and/or falling clock edge(s) of clk_100.
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An input delay is missing on btnL relative to the rising and/or falling clock edge(s) of clk_100.
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An input delay is missing on btnR relative to the rising and/or falling clock edge(s) of clk_100.
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An input delay is missing on btnU relative to the rising and/or falling clock edge(s) of clk_100.
+Related violations: <none>
+
+XDCC-4#1 Warning
+User Clock constraint overwritten with the same name  
+A new clock constraint create_generated_clock overrides a previous user clock constraint with the same name.
+New: create_generated_clock -name clk_1k -source [get_pins clk_100M_to_clk_4/clk_100M_i] -divide_by 25000000 [get_pins clk_100M_to_clk_4/clk_4_o] (Source: /home/nduvvuru@ad.crm.ucsc.edu/Downloads/lab4-20240801T223921Z-001/lab4/starter/synth/basys3/constraints.xdc (Line: 2))
+Previous: create_generated_clock -name clk_1k -source [get_pins clk_100M_to_clk_1k/clk_100M_i] -divide_by 100000 [get_pins clk_100M_to_clk_1k/clk_1k_o] (Source: /home/nduvvuru@ad.crm.ucsc.edu/Downloads/lab4-20240801T223921Z-001/lab4/starter/synth/basys3/constraints.xdc (Line: 1))
+Related violations: <none>
+
+
